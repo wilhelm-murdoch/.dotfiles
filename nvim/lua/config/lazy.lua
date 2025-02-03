@@ -28,3 +28,10 @@ require("lazy").setup({
 		notify = false,
 	},
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "terraform",
+	callback = function()
+		vim.bo.commentstring = "# %s"
+	end,
+})
