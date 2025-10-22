@@ -11,6 +11,7 @@ return {
 					"lua",
 					"go",
 					"html",
+					"terraform",
 				},
 			})
 		end,

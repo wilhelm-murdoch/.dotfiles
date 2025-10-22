@@ -19,7 +19,6 @@ return {
 		defaults = {
 			file_ignore_patterns = {
 				"node_modules/*",
-				".git/*",
 			},
 		},
 		extensions = {
@@ -33,8 +32,8 @@ return {
 		require("telescope").load_extension("git_file_history")
 	end,
 	keys = {
-		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find all files" },
-		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Find in files" },
+		{ "<leader>fa", "<cmd>Telescope find_files<cr>", desc = "Find all files" },
+		{ "<leader>fi", "<cmd>Telescope live_grep<cr>", desc = "Find in files" },
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find in open buffers" },
 	},
 }

@@ -9,6 +9,8 @@ return {
 			yaml = { "prettierd" },
 			markdown = { "prettierd" },
 			html = { "prettierd" },
+			terraform = { "terraform_fmt" },
+			go = { "gofumpt", "goimports-reviser", "golines" },
 		},
 		format_on_save = {
 			timeout_ms = 500,

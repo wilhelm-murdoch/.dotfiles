@@ -27,3 +27,4 @@ vim.opt.exrc = true
 vim.opt.secure = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
