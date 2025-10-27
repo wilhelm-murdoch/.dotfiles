@@ -1,6 +1,3 @@
 *
-!nvim/lsp
-!nvim/lsp/*
-!nvim/*
 !tmux/
-!tmux/*
+!nvim/
