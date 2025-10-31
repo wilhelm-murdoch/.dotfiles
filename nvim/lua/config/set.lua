@@ -28,3 +28,9 @@ vim.opt.secure = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
+
+vim.filetype.add({
+	extension = {
+		glaze = "terraform",
+	},
+})
