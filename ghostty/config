@@ -1,0 +1,7 @@
+title = ""
+font-family = "JetBrains Mono"
+font-family = "Hack Nerd Font Mono"
+font-size = 16
+adjust-cell-height = 16
+cursor-style = underline
+theme = Catppuccin Macchiato
