@@ -4,3 +4,5 @@
 !/nvim/lsp/
 !/nvim/**
 !/tmux/**
+!/ghostty/
+!/ghostty/**
