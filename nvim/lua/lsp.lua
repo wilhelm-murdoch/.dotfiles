@@ -9,6 +9,8 @@ require("lspconfig")
 local servers = {
 	"lua_ls",
 	"gopls",
+	"terraformls",
+	"bashls",
 }
 
 vim.lsp.enable(servers)
