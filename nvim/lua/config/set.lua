@@ -28,6 +28,11 @@ vim.opt.secure = true
 vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cursorline = true
+-- One cursor in every mode: a blinking block, the same as the terminal.
+vim.opt.guicursor = {
+	"a:block-blinkwait700-blinkon400-blinkoff250",
+	"t:block-blinkon500-blinkoff500-TermCursor",
+}
 vim.filetype.add({
 	extension = {
 		glaze = "terraform",

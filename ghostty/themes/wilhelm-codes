@@ -1,0 +1,63 @@
+# wilhelm.codes, a Ghostty theme
+#
+# Every colour is a token from assets/css/main.css. The comment on each
+# line names the token. Change the token first, then copy the value here.
+#
+# The bright colours have no token. A bright colour is its normal colour
+# mixed with a quarter of --text, in the sRGB space, so the hue stays and
+# the tone lifts one step. Black and white read the text ramp instead.
+#
+# Install: copy this file to ~/.config/ghostty/themes/wilhelm-codes and
+# set `theme = wilhelm-codes` in the Ghostty config.
+
+# The ground and the body copy.
+background = #17181a
+foreground = #e3e3de
+
+# The accent means live, current or mine. The cursor is the live thing.
+cursor-color = #32d74b
+cursor-text = #17181a
+
+# The site selection: the accent wash behind accent text.
+selection-background = #16301d
+selection-foreground = #32d74b
+
+# A split edge is a border.
+split-divider-color = #2c2e31
+
+# Normal colours.
+palette = 0=#3c3f43
+palette = 1=#ff6369
+palette = 2=#32d74b
+palette = 3=#f2b45c
+palette = 4=#7ea6ff
+palette = 5=#c08aff
+palette = 6=#4ade9f
+palette = 7=#b9b9b2
+
+# Bright colours.
+palette = 8=#8b8b84
+palette = 9=#f88386
+palette = 10=#5eda70
+palette = 11=#eec07c
+palette = 12=#97b5f7
+palette = 13=#c9a0f7
+palette = 14=#70dfaf
+palette = 15=#e3e3de
+
+# 0  --border-strong    the one dark grey that still shows on the ground
+# 1  --heart            errors and deletions, as in chroma.css
+# 2  --accent           the one accent
+# 3  --bit-amber        the amber bit kind
+# 4  --bit-blue         the blue bit kind
+# 5  --bit-violet       the violet bit kind
+# 6  --bit-emerald      the emerald bit kind
+# 7  --text-soft        strings sit one step back
+# 8  --text-muted       comments and keywords, as in chroma.css
+# 9  --heart            lifted
+# 10 --accent           lifted
+# 11 --bit-amber        lifted
+# 12 --bit-blue         lifted
+# 13 --bit-violet       lifted
+# 14 --bit-emerald      lifted
+# 15 --text             body copy

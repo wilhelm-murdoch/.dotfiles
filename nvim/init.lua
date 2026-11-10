@@ -1,4 +1,5 @@
 require("config.set")
+vim.cmd.colorscheme("wilhelm-codes")
 require("config.lazy")
 require("config.keymap")
 require("lsp")

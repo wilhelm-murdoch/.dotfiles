@@ -1,0 +1,127 @@
+# wilhelm.codes, an oh-my-posh theme
+#
+# Every colour is a token from assets/css/main.css. The palette below names
+# each token. Change the token first, then copy the value here. A segment
+# reads a palette entry with p:name, never a hex value.
+#
+# The prompt follows the site rules. The accent means live, current or
+# mine: the folder you are in, and staged work. Metadata is muted. The
+# alarm shows one thing, a command that failed. History is faint.
+
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+version = 3
+final_space = true
+
+[palette]
+  # The one accent: the current folder and staged work.
+  accent = '#32d74b'   # --accent
+  # The prompt sigil takes the colour a prompt wears in a code block.
+  prompt = '#74746d'   # --code-op
+  # Metadata: the parent path, the branch, the remote host.
+  muted = '#8b8b84'    # --text-muted
+  # A line a reader may ignore: the prompts of past commands.
+  faint = '#6a6a64'    # --text-faint
+  # The amber bit kind: a slow command, a dirty working tree.
+  amber = '#f2b45c'    # --bit-amber
+  # The emerald bit kind: ahead of or behind the remote.
+  emerald = '#4ade9f'  # --bit-emerald
+  # Something is wrong, right now: the exit code of a failed command.
+  alarm = '#ff453a'    # --alarm
+
+# Past prompts dim, like the letter the landlord never fixes.
+[secondary_prompt]
+  template = '·// '
+  foreground = 'p:faint'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '// '
+  foreground = 'p:faint'
+  background = 'transparent'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  # The network node, only when you are on one.
+  [[blocks.segments]]
+    template = '{{ if .SSHSession }}@{{ .HostName }} {{ end }}'
+    foreground = 'p:muted'
+    background = 'transparent'
+    type = 'session'
+    style = 'plain'
+
+  # The path: parents as metadata, the current folder lit like the current
+  # page in the site navigation.
+  [[blocks.segments]]
+    template = '<p:muted>{{ .Parent }}</>{{ .Folder }}'
+    foreground = 'p:accent'
+    background = 'transparent'
+    type = 'path'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      style = 'full'
+
+  # Git as metadata. Amber marks a dirty working tree, the accent marks
+  # staged work, emerald marks the distance to the remote.
+  [[blocks.segments]]
+    template = ' {{ .HEAD }}{{ if .Working.Changed }}<p:amber> *</>{{ end }}{{ if .Staging.Changed }}<p:accent> +</>{{ end }} <p:emerald>{{ if gt .Behind 0 }} ⇣{{ end }}{{ if gt .Ahead 0 }} ⇡{{ end }}</>'
+    foreground = 'p:muted'
+    background = 'transparent'
+    type = 'git'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      cache_duration = 'none'
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'rprompt'
+  overflow = 'hidden'
+
+  # A slow command, in amber, past five seconds.
+  [[blocks.segments]]
+    template = '{{ .FormattedMs }}'
+    foreground = 'p:amber'
+    background = 'transparent'
+    type = 'executiontime'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      threshold = 5000
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  # The sigil stays dim. The cursor after it is the lit full stop. A root
+  # shell puts an alarm mark before it, the same fault class as a failed
+  # command.
+  [[blocks.segments]]
+    template = '{{ if .Root }}<p:alarm>!</>{{ end }}//'
+    foreground = 'p:prompt'
+    background = 'transparent'
+    type = 'text'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  # The exit code of a failed command, as the alarm LED. It shows on a
+  # failure alone and clears on the next success.
+  [[blocks.segments]]
+    template = ' {{ .Code }}'
+    foreground = 'p:alarm'
+    background = 'transparent'
+    type = 'status'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      always_enabled = false
